@@ -98,7 +98,7 @@ function transform(oldPointStructure) {
       let newPointStructure = {};//new object for new points
       for (let point in oldPointStructure){ // refer to the point
          for (let letter of oldPointStructure[point]) // letting letter replace the point in the old point
-            newPointStructure[letter.toLowerCase()] = Number(point); // new point structure
+            newPointStructure[letter.toLowerCase()] = Number(point); // new point structure, lowercase letters: amount of points it will equal too.
       }
       return newPointStructure;
    };
