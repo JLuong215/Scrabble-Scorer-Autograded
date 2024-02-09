@@ -85,12 +85,13 @@ function scorerPrompt() {//question to ask, depending on the the answer it will 
       1 - Vowel Bonus: Vowels are worth 3 points
       2 - Scrabble: Uses scrabble point system
       Enter 0, 1, or 2: `);
+   let scrabbleGame = '';
    if (answer === 1 || 2 || 3) { //if it return any of the number it will compare to scoringAlg above
-      return scoringAlgorithms[answer];
+      scrabbleGame = scoringAlgorithms[answer];
    } else {
-      scorerPrompt;//if input is not within the above number, it will repeat the question
+     return scorerPrompt;//if input is not within the above number, it will repeat the question
    }
-
+   return scrabbleGame;
 }
 
 function transform(oldPointStructure) {
