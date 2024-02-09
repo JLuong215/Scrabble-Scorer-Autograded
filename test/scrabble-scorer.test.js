@@ -144,3 +144,4 @@ describe("Scrabble Scorer solution", function() {
 	});
 	
 });
+// notes

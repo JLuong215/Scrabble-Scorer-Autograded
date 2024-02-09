@@ -40,16 +40,15 @@ function initialPrompt() {//initial question to compare with OldScrabbleScrabble
 let simpleScorer = function(word){
    let totalSimpleSum = 0; //Sum of number
    for (i = 0; i < word.length; i++) {
-      if (word[i].toUpperCase.includes === oldPointStructure.toUpperCase) // comparing current letter and made it case insenitive to the old point structure
       totalSimpleSum++ //every time it come out true, it will add a counter
-   }
-   return totalSimpleSum; // returning total sum
+   } 
+   return totalSimpleSum; //returning total sum
 };
 
 let vowelBonusScorer = function(word) {
    word = word.toUpperCase();
    let totalBonusScore = 0; // total amount
-   for (i = 0; i < word.length; i++){ //go up 1 every time it loops
+   for (i = 0; i < word.length; i++){ //loop through every index of string word, check if each index of word contain a vowel, if it does plus 3 otherwise plus 1
       if (word[i].includes('A') || word[i].includes('E') || word[i].includes('I') || word[i].includes('O') || word[i].includes('U')){ //vowels to look for
                totalBonusScore += 3; // add 3
          } else {
@@ -68,7 +67,7 @@ let scrabbleScorer = function(word){
    return score
 }
 
-const scoringAlgorithms = [//object for Algorithms
+const scoringAlgorithms = [//array of object
 {name: "Simple Score", 
 description: "Each letter is worth 1 point.", 
 scorerFunction: simpleScorer}, 
@@ -95,13 +94,13 @@ function scorerPrompt() {//question to ask, depending on the the answer it will 
 }
 
 function transform(oldPointStructure) {
-      let newPointStructure = {};//new object for new points
-      for (let point in oldPointStructure){ // refer to the point
-         for (let letter of oldPointStructure[point]) // letting letter replace the point in the old point
-            newPointStructure[letter.toLowerCase()] = Number(point); // new point structure, lowercase letters: amount of points it will equal too.
-      }
-      return newPointStructure;
-   };
+   let newPointStructure = {};//new object for new points
+   for (let point in oldPointStructure){ // refer to the point
+      for (let letter of oldPointStructure[point]) // letting letter replace the point in the old point
+         newPointStructure[letter.toLowerCase()] = Number(point); // new point structure, lowercase letters: amount of points it will equal too.
+   }
+   return newPointStructure;
+};
 
 
 let newPointStructure = transform(oldPointStructure);
